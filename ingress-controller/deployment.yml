@@ -5,7 +5,7 @@ metadata:
   labels:
     k8s-app: nginx-ingress-controller
 spec:
-  replicas: 2
+  replicas: 1
   strategy:
     rollingUpdate:
       maxSurge: 2
@@ -50,9 +50,9 @@ spec:
               fieldRef:
                 fieldPath: metadata.namespace
           - name: SSL_CERT
-            value: "Fill me in!"
+            value: BASE64_ENCODED_SSL_CERT_PLACEHOLDER
           - name: SSL_KEY
-            value: "Fill me in!"
+            value: BASE64_ENCODED_SSL_KEY_PLACEHOLDER
         args:
         - /bin/bash
         - /usr/local/bin/boot.sh
